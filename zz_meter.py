@@ -1,8 +1,3 @@
-"""
-ZZMeter v1.0 — Квантовый ZZ-кроссток за 1 строку кода
-✅ AerSimulator API исправлен | Minsk 2026
-"""
-
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
@@ -54,13 +49,12 @@ class ZZMeter:
         
         return self.analyze()
     
-    def _get_probs(self, job):  # ✅ ПРАВИЛЬНЫЙ API!
-        """Извлекает P(|00⟩) правильно"""
+    def _get_probs(self, job):  
         result = job.result()
         probs = []
         
         for experiment in result.results:
-            counts = experiment.data.counts  # ✅ Правильный путь!
+            counts = experiment.data.counts  
             p00 = counts.get('00', 0) / self.shots
             probs.append(p00)
             
@@ -113,9 +107,6 @@ class ZZMeter:
         plt.show()
         print(f"✅ {save_path}")
 
-# ========================================
-# 🚀 ЗАПУСК — 3 СТРОКИ!
-# ========================================
 if __name__ == "__main__":
     print("🔬 ZZMeter v1.0 — Production Ready!")
     
